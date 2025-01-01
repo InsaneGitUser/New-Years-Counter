@@ -23,10 +23,10 @@ function createAndUpdateTime() {
         container.style.display = 'flex';
         container.style.alignItems = 'center';
         container.style.justifyContent = 'center';
-        container.style.position = 'absolute';
+        container.style.position = 'fixed';
         container.style.top = '0';
         container.style.left = '0';
-        container.style.width = '100%';  // Ensure it takes up full width of the screen
+        container.style.width = '100vw';
         container.style.height = '100vh';
         document.body.appendChild(container);
 
