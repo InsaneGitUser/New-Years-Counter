@@ -22,14 +22,15 @@ function createAndUpdateTime() {
         timeDisplay.id = 'timeDisplay';
         timeDisplay.style.color = '#FC6A03';
         timeDisplay.style.fontFamily = 'Arial, sans-serif';
-        timeDisplay.style.fontSize = '500px';
         timeDisplay.style.textAlign = 'center';
         timeDisplay.style.position = 'absolute';
         timeDisplay.style.top = '50%';
         timeDisplay.style.left = '50%';
         timeDisplay.style.transform = 'translate(-50%, -50%)';
+        timeDisplay.style.fontSize = '10vw';
         document.body.appendChild(timeDisplay);
     }
+
     const now = new Date();
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
