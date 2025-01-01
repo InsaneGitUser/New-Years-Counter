@@ -28,6 +28,7 @@ function createAndUpdateTime() {
         container.style.left = '0';
         container.style.width = '100vw';
         container.style.height = '100vh';
+        container.style.backgroundColor = 'black';
         document.body.appendChild(container);
 
         timeDisplay = document.createElement('h2');
@@ -35,6 +36,8 @@ function createAndUpdateTime() {
         timeDisplay.style.color = '#FC6A03';
         timeDisplay.style.fontFamily = 'Arial, sans-serif';
         timeDisplay.style.fontSize = '10vw';
+        timeDisplay.style.margin = '0';
+        timeDisplay.style.lineHeight = '1';
         container.appendChild(timeDisplay);
     }
 
