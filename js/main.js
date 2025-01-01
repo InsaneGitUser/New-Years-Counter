@@ -22,6 +22,7 @@ function createAndUpdateTime() {
         timeDisplay.id = 'timeDisplay';
         timeDisplay.style.color = '#FC6A03';
         timeDisplay.style.fontFamily = 'Arial, sans-serif';
+        timeDisplay.style.font-size = 100px;
         timeDisplay.style.textAlign = 'center';
         document.body.appendChild(timeDisplay);
     }
