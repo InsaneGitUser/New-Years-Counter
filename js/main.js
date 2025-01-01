@@ -1,9 +1,10 @@
 function createAndUpdateTime() {
+    let container = document.getElementById('timeContainer');
     let timeDisplay = document.getElementById('timeDisplay');
     let dateDisplay = document.getElementById('dateDisplay');
 
-    if (!timeDisplay) {
-        let container = document.createElement('div');
+    if (!container) {
+        container = document.createElement('div');
         container.id = 'timeContainer';
         container.style.display = 'flex';
         container.style.flexDirection = 'column';
@@ -59,3 +60,4 @@ function createAndUpdateTime() {
 }
 
 setInterval(createAndUpdateTime, 1000);
+
