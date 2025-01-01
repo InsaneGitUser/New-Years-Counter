@@ -22,8 +22,12 @@ function createAndUpdateTime() {
         timeDisplay.id = 'timeDisplay';
         timeDisplay.style.color = '#FC6A03';
         timeDisplay.style.fontFamily = 'Arial, sans-serif';
-        timeDisplay.style.font-size = 100px;
+        timeDisplay.style.fontSize = '50px';
         timeDisplay.style.textAlign = 'center';
+        timeDisplay.style.position = 'absolute';
+        timeDisplay.style.top = '50%';
+        timeDisplay.style.left = '50%';
+        timeDisplay.style.transform = 'translate(-50%, -50%)';
         document.body.appendChild(timeDisplay);
     }
     const now = new Date();
