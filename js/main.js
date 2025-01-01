@@ -28,6 +28,7 @@ function createAndUpdateTime() {
         container.style.left = '0';
         container.style.width = '100vw';
         container.style.height = '100vh';
+        container.style.backgroundColor = 'black';
         document.body.appendChild(container);
 
         timeDisplay = document.createElement('h2');
@@ -41,10 +42,17 @@ function createAndUpdateTime() {
     }
 
     const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
+    let hours = now.getHours();
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');
-    timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    
+    // Convert to 12-hour format
+    hours = hours % 12;
+    hours = hours ? hours : 12; // If hours is 0, set it to 12
+    hours = String(hours).padStart(2, '0');
+
+    timeDisplay.textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
 }
 
 setInterval(createAndUpdateTime, 1000);
