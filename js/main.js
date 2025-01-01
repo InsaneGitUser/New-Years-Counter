@@ -18,17 +18,22 @@ document.addEventListener('touchstart', toggleFullScreen);
 function createAndUpdateTime() {
     let timeDisplay = document.getElementById('timeDisplay');
     if (!timeDisplay) {
+        let container = document.createElement('div');
+        container.id = 'timeContainer';
+        container.style.display = 'flex';
+        container.style.alignItems = 'center';
+        container.style.justifyContent = 'center';
+        container.style.height = '100vh';
+        container.style.position = 'absolute';
+
         timeDisplay = document.createElement('h2');
         timeDisplay.id = 'timeDisplay';
         timeDisplay.style.color = '#FC6A03';
         timeDisplay.style.fontFamily = 'Arial, sans-serif';
-        timeDisplay.style.textAlign = 'center';
-        timeDisplay.style.position = 'absolute';
-        timeDisplay.style.top = '60%';
-        timeDisplay.style.left = '50%';
-        timeDisplay.style.transform = 'translate(-50%, -50%)';
-        timeDisplay.style.fontSize = '10vw'; 
-        document.body.appendChild(timeDisplay);
+        timeDisplay.style.fontSize = '10vw';
+        container.appendChild(timeDisplay);
+
+        document.body.appendChild(container);
     }
 
     const now = new Date();
@@ -36,7 +41,6 @@ function createAndUpdateTime() {
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');
     timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
-
 }
-    
+
 setInterval(createAndUpdateTime, 1000);
