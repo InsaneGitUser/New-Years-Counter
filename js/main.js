@@ -17,6 +17,8 @@ document.addEventListener('touchstart', toggleFullScreen);
 
 function createAndUpdateTime() {
     let timeDisplay = document.getElementById('timeDisplay');
+    let dateDisplay = document.getElementById('dateDisplay');
+    
     if (!timeDisplay) {
         let container = document.createElement('div');
         container.id = 'timeContainer';
@@ -29,8 +31,20 @@ function createAndUpdateTime() {
         container.style.width = '100vw';
         container.style.height = '100vh';
         container.style.backgroundColor = 'black';
+        container.style.flexDirection = 'column';
         document.body.appendChild(container);
 
+        
+        dateDisplay = document.createElement('h3');
+        dateDisplay.id = 'dateDisplay';
+        dateDisplay.style.color = 'white';
+        dateDisplay.style.fontFamily = 'Arial, sans-serif';
+        dateDisplay.style.fontSize = '4vw';
+        dateDisplay.style.margin = '0';
+        dateDisplay.style.marginBottom = '2vh';
+        container.appendChild(dateDisplay);
+
+        
         timeDisplay = document.createElement('h2');
         timeDisplay.id = 'timeDisplay';
         timeDisplay.style.color = '#FC6A03';
@@ -42,17 +56,23 @@ function createAndUpdateTime() {
     }
 
     const now = new Date();
+    
+    
     let hours = now.getHours();
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');
     const ampm = hours >= 12 ? 'PM' : 'AM';
     
-    // Convert to 12-hour format
     hours = hours % 12;
-    hours = hours ? hours : 12; // If hours is 0, set it to 12
+    hours = hours ? hours : 12;
     hours = String(hours).padStart(2, '0');
 
     timeDisplay.textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
+
+    
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const dateStr = now.toLocaleDateString('en-US', options);
+    dateDisplay.textContent = dateStr;
 }
 
 setInterval(createAndUpdateTime, 1000);
