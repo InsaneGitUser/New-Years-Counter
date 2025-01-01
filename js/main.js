@@ -38,6 +38,15 @@ function createAndUpdateTime() {
         timeDisplay.style.margin = '0';
         timeDisplay.style.lineHeight = '1';
         container.appendChild(timeDisplay);
+
+        timeDisplay = document.createElement('h2');
+        timeDisplay.id = 'dateDisplay';
+        timeDisplay.style.color = 'white';
+        timeDisplay.style.fontFamily = 'Arial, sans-serif';
+        timeDisplay.style.fontSize = '4vw';
+        timeDisplay.style.margin = '0';
+        timeDisplay.style.lineHeight = '1';
+        container.appendChild(timeDisplay);
     }
 
     const now = new Date();
@@ -55,3 +64,22 @@ function createAndUpdateTime() {
 }
 
 setInterval(createAndUpdateTime, 1000);
+
+
+const today = new Date();
+
+
+const month = today.getMonth();
+const day = today.getDate();
+
+
+let message;
+if (month === 0 && day === 1) {
+  dateDisplay.textcontent = `Happy New Years!`
+} else if (month === 11 && day === 31) {
+  dateDisplay.textcontent = `New Years Eve!`
+} else {
+  dateDisplay.textcontent = `Why are you here?`
+}
+
+
