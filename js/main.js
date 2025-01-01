@@ -17,6 +17,15 @@ function createAndUpdateTime() {
         container.style.height = '100vh';
         document.body.appendChild(container);
 
+        dateDisplay = document.createElement('h2');
+        dateDisplay.id = 'dateDisplay';
+        dateDisplay.style.color = 'white';
+        dateDisplay.style.fontFamily = 'Arial, sans-serif';
+        dateDisplay.style.fontSize = '4vw';
+        dateDisplay.style.margin = '0';
+        dateDisplay.style.lineHeight = '1';
+        container.appendChild(dateDisplay);
+
         timeDisplay = document.createElement('h2');
         timeDisplay.id = 'timeDisplay';
         timeDisplay.style.color = '#FC6A03';
@@ -26,14 +35,6 @@ function createAndUpdateTime() {
         timeDisplay.style.lineHeight = '1';
         container.appendChild(timeDisplay);
 
-        dateDisplay = document.createElement('h2');
-        dateDisplay.id = 'dateDisplay';
-        dateDisplay.style.color = 'white';
-        dateDisplay.style.fontFamily = 'Arial, sans-serif';
-        dateDisplay.style.fontSize = '4vw';
-        dateDisplay.style.margin = '0';
-        dateDisplay.style.lineHeight = '1';
-        container.appendChild(dateDisplay);
     }
 
     const now = new Date();
