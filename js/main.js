@@ -27,7 +27,7 @@ function createAndUpdateTime() {
         timeDisplay.style.top = '50%';
         timeDisplay.style.left = '50%';
         timeDisplay.style.transform = 'translate(-50%, -50%)';
-        timeDisplay.style.fontSize = '10vw';
+        timeDisplay.style.fontSize = '10vw'; 
         document.body.appendChild(timeDisplay);
     }
 
@@ -37,5 +37,14 @@ function createAndUpdateTime() {
     const seconds = String(now.getSeconds()).padStart(2, '0');
     timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
 }
+
+window.addEventListener('resize', function() {
+    const timeDisplay = document.getElementById('timeDisplay');
+    if (timeDisplay) {
+        timeDisplay.style.top = '50%';
+        timeDisplay.style.left = '50%';
+        timeDisplay.style.transform = 'translate(-50%, -50%)';
+    }
+});
 
 setInterval(createAndUpdateTime, 1000);
