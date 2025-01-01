@@ -25,6 +25,7 @@ function createAndUpdateTime() {
         container.style.justifyContent = 'center';
         container.style.height = '100vh';
         container.style.position = 'absolute';
+        document.body.appendChild(container);
 
         timeDisplay = document.createElement('h2');
         timeDisplay.id = 'timeDisplay';
@@ -32,8 +33,6 @@ function createAndUpdateTime() {
         timeDisplay.style.fontFamily = 'Arial, sans-serif';
         timeDisplay.style.fontSize = '10vw';
         container.appendChild(timeDisplay);
-
-        document.body.appendChild(container);
     }
 
     const now = new Date();
