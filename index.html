@@ -3,9 +3,9 @@
   <head>
     <title>New Years Counter</title>
     <script>
-      document.addEventListener('click', function(event) {
+      function toggleFullScreen() {
     if (document.fullscreenElement) {
-        
+       
         document.exitFullscreen();
     } else {
         
@@ -13,7 +13,12 @@
             console.error(`Error attempting to enable fullscreen mode: ${err.message}`);
         });
     }
-});
+}
+
+
+document.addEventListener('click', toggleFullScreen);
+document.addEventListener('touchstart', toggleFullScreen);
+
     </script>
   </head>
   <body bgcolor="#373737">
