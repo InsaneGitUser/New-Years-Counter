@@ -1,26 +1,12 @@
-function toggleFullScreen() {
-    if (document.documentElement.requestFullscreen) {
-        if (document.fullscreenElement) {
-            document.exitFullscreen();
-        } else {
-            document.documentElement.requestFullscreen().catch(err => {
-                console.error(`Error attempting fullscreen: ${err.message}`);
-            });
-        }
-    } else {
-        alert("Fullscreen API is not supported on this browser.");
-    }
-}
-
-document.addEventListener('click', toggleFullScreen);
-document.addEventListener('touchstart', toggleFullScreen);
-
 function createAndUpdateTime() {
     let timeDisplay = document.getElementById('timeDisplay');
+    let dateDisplay = document.getElementById('dateDisplay');
+
     if (!timeDisplay) {
         let container = document.createElement('div');
         container.id = 'timeContainer';
         container.style.display = 'flex';
+        container.style.flexDirection = 'column';
         container.style.alignItems = 'center';
         container.style.justifyContent = 'center';
         container.style.position = 'fixed';
@@ -54,32 +40,22 @@ function createAndUpdateTime() {
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');
     const ampm = hours >= 12 ? 'PM' : 'AM';
-    
-    
-    hours = hours % 12;
-    hours = hours ? hours : 12;
+
+    hours = hours % 12 || 12;
     hours = String(hours).padStart(2, '0');
 
     timeDisplay.textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
+
+    const month = now.getMonth();
+    const day = now.getDate();
+
+    if (month === 0 && day === 1) {
+        dateDisplay.textContent = `Happy New Year!`;
+    } else if (month === 11 && day === 31) {
+        dateDisplay.textContent = `New Year's Eve!`;
+    } else {
+        dateDisplay.textContent = `Why are you here?`;
+    }
 }
 
 setInterval(createAndUpdateTime, 1000);
-
-
-const today = new Date();
-
-
-const month = today.getMonth();
-const day = today.getDate();
-
-
-let message;
-if (month === 0 && day === 1) {
-  dateDisplay.textcontent = `Happy New Years!`;
-} else if (month === 11 && day === 31) {
-  dateDisplay.textcontent = `New Years Eve!`;
-} else {
-  dateDisplay.textcontent = `Why are you here?`;
-}
-
-
