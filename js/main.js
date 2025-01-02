@@ -10,10 +10,11 @@ function createAndUpdateTime() {
         container.style.alignItems = 'center';
         container.style.justifyContent = 'center';
         container.style.position = 'fixed';
-        container.style.top = '0';
+        container.style.top = '50%';
         container.style.left = '0';
         container.style.width = '100vw';
         container.style.height = '100vh';
+        container.style.transform = 'translateY(-65%)';
         document.body.appendChild(container);
         
         dateDisplay = document.createElement('h2');
@@ -47,6 +48,12 @@ function createAndUpdateTime() {
     const day = now.getDate();
     if (month === 0 && day === 1) {
         dateDisplay.textContent = `Happy New Year!`;
+        if (!window.confettiScript) {
+            const script = document.createElement('script');
+            script.src = './confetti.js';
+            document.body.appendChild(script);
+            window.confettiScript = true;
+        }
     } else if (month === 11 && day === 31) {
         dateDisplay.textContent = `New Year's Eve!`;
     } else {
