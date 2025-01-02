@@ -50,7 +50,7 @@ function createAndUpdateTime() {
         dateDisplay.textContent = `Happy New Year!`;
         if (!window.confettiScript) {
             const script = document.createElement('script');
-            script.src = './confetti.js';
+            script.src = './js/confetti.js';
             document.body.appendChild(script);
             window.confettiScript = true;
         }
