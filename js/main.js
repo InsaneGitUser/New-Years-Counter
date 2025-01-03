@@ -47,12 +47,10 @@ function createAndUpdateTime() {
     const month = now.getMonth();
     const day = now.getDate();
     if (month === 0 && day === 1) {
-        dateDisplay.textContent = `Happy New Year!`;
-        if (!window.confettiScript) {
-            const script = document.createElement('script');
-            script.src = './js/confetti.js';
-            document.body.appendChild(script);
-            window.confettiScript = true;
+    dateDisplay.textContent = `Happy New Year!`;
+    if (!window.confettiStarted) {
+        startConfetti();
+        window.confettiStarted = true;
         }
     } else if (month === 11 && day === 31) {
         dateDisplay.textContent = `New Year's Eve!`;
