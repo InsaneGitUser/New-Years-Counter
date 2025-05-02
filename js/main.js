@@ -27,7 +27,7 @@ function createAndUpdateTime() {
         container.appendChild(dateDisplay);
         
         timeDisplay = document.createElement('h2');
-        container.style.fontFamily = 'clockicons, sans-serif';
+        timeDisplay.style.fontFamily = 'clockicons, sans-serif';
         timeDisplay.id = 'timeDisplay';
         timeDisplay.style.color = '#FC6A03';
         timeDisplay.style.fontSize = '10vw';
