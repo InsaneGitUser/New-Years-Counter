@@ -24,10 +24,16 @@
        opacity: 0;
        }
       @font-face {
-      src: url('./clockicons.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-       }
+    font-family: clockicons;
+    src: url(./clockicons.eot) format('embedded-opentype'),
+         url(./clockicons.woff2) format('woff2'),
+         url(./clockicons.woff) format('woff'),
+         url(./clockicons.ttf) format('truetype'),
+         url(./clockicons.svg) format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
 
     </style>
   </head>
