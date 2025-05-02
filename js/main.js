@@ -4,6 +4,7 @@ function createAndUpdateTime() {
     let dateDisplay = document.getElementById('dateDisplay');
     if (!container) {
         container = document.createElement('div');
+        container.style.fontFamily = '/Font/clockicons.ttf, sans-serif';
         container.id = 'timeContainer';
         container.style.display = 'flex';
         container.style.flexDirection = 'column';
@@ -20,7 +21,6 @@ function createAndUpdateTime() {
         dateDisplay = document.createElement('h2');
         dateDisplay.id = 'dateDisplay';
         dateDisplay.style.color = 'white';
-        dateDisplay.style.fontFamily = 'Arial, sans-serif';
         dateDisplay.style.fontSize = '4vw';
         dateDisplay.style.margin = '0';
         dateDisplay.style.marginBottom = '5vh';
@@ -30,7 +30,6 @@ function createAndUpdateTime() {
         timeDisplay = document.createElement('h2');
         timeDisplay.id = 'timeDisplay';
         timeDisplay.style.color = '#FC6A03';
-        timeDisplay.style.fontFamily = 'Arial, sans-serif';
         timeDisplay.style.fontSize = '10vw';
         timeDisplay.style.margin = '0';
         timeDisplay.style.lineHeight = '1';
