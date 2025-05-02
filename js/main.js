@@ -4,7 +4,7 @@ function createAndUpdateTime() {
     let dateDisplay = document.getElementById('dateDisplay');
     if (!container) {
         container = document.createElement('div');
-        container.style.fontFamily = '/clockicons.ttf, sans-serif';
+        container.style.fontFamily = './clockicons.ttf, sans-serif';
         container.id = 'timeContainer';
         container.style.display = 'flex';
         container.style.flexDirection = 'column';
