@@ -2,6 +2,7 @@ function createAndUpdateTime() {
     let container = document.getElementById('timeContainer');
     let timeDisplay = document.getElementById('timeDisplay');
     let dateDisplay = document.getElementById('dateDisplay');
+
     if (!container) {
         container = document.createElement('div');
         container.id = 'timeContainer';
@@ -16,7 +17,7 @@ function createAndUpdateTime() {
         container.style.height = '100vh';
         container.style.transform = 'translateY(-65%)';
         document.body.appendChild(container);
-        
+
         dateDisplay = document.createElement('h2');
         dateDisplay.id = 'dateDisplay';
         dateDisplay.style.color = 'white';
@@ -25,16 +26,17 @@ function createAndUpdateTime() {
         dateDisplay.style.marginBottom = '5vh';
         dateDisplay.style.lineHeight = '1';
         container.appendChild(dateDisplay);
-        
+
         timeDisplay = document.createElement('h2');
-        timeDisplay.style.fontFamily = 'clockicons, sans-serif';
         timeDisplay.id = 'timeDisplay';
         timeDisplay.style.color = '#FC6A03';
-        timeDisplay.style.fontSize = '7vw';
+        timeDisplay.style.fontSize = '10vw';
         timeDisplay.style.margin = '0';
         timeDisplay.style.lineHeight = '1';
+        timeDisplay.style.fontFamily = 'clockicons, sans-serif';
         container.appendChild(timeDisplay);
     }
+
     const now = new Date();
     let hours = now.getHours();
     const minutes = String(now.getMinutes()).padStart(2, '0');
@@ -43,13 +45,14 @@ function createAndUpdateTime() {
     hours = hours % 12 || 12;
     hours = String(hours).padStart(2, '0');
     timeDisplay.textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
+
     const month = now.getMonth();
     const day = now.getDate();
     if (month === 0 && day === 1) {
-    dateDisplay.textContent = `Happy New Year!`;
-    if (!window.confettiStarted) {
-        startConfetti();
-        window.confettiStarted = true;
+        dateDisplay.textContent = `Happy New Year!`;
+        if (!window.confettiStarted) {
+            startConfetti();
+            window.confettiStarted = true;
         }
     } else if (month === 11 && day === 31) {
         dateDisplay.textContent = `New Year's Eve!`;
@@ -57,4 +60,5 @@ function createAndUpdateTime() {
         dateDisplay.textContent = `Why are you here?`;
     }
 }
+
 setInterval(createAndUpdateTime, 1000);
