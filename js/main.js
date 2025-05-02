@@ -30,7 +30,7 @@ function createAndUpdateTime() {
         timeDisplay.style.fontFamily = 'clockicons, sans-serif';
         timeDisplay.id = 'timeDisplay';
         timeDisplay.style.color = '#FC6A03';
-        timeDisplay.style.fontSize = '10vw';
+        timeDisplay.style.fontSize = '7vw';
         timeDisplay.style.margin = '0';
         timeDisplay.style.lineHeight = '1';
         container.appendChild(timeDisplay);
