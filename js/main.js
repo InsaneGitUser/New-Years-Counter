@@ -4,7 +4,6 @@ function createAndUpdateTime() {
     let dateDisplay = document.getElementById('dateDisplay');
     if (!container) {
         container = document.createElement('div');
-        container.style.fontFamily = 'clockicons, sans-serif';
         container.id = 'timeContainer';
         container.style.display = 'flex';
         container.style.flexDirection = 'column';
@@ -28,6 +27,7 @@ function createAndUpdateTime() {
         container.appendChild(dateDisplay);
         
         timeDisplay = document.createElement('h2');
+        container.style.fontFamily = 'clockicons, sans-serif';
         timeDisplay.id = 'timeDisplay';
         timeDisplay.style.color = '#FC6A03';
         timeDisplay.style.fontSize = '10vw';
